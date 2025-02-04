@@ -184,11 +184,11 @@
                     StrokeThickness="3">
                 <Path.Data>
                   <PathGeometry>
-                    <PathFigure StartPoint="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={x:Static circularProgressBarConverters:StartPointConverter.Instance}, Mode=OneWay}">
-                      <ArcSegment Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={x:Static circularProgressBarConverters:ArcSizeConverter.Instance}, Mode=OneWay}" SweepDirection="Clockwise">
+                    <PathFigure StartPoint="{Binding  Source={x:Reference PathGrid},  Path=ActualWidth, Converter={x:Static circularProgressBarConverters:StartPointConverter.Instance}, Mode=OneWay}">
+                      <ArcSegment Size="{Binding  Source={x:Reference PathGrid}, Path=ActualWidth, Converter={x:Static circularProgressBarConverters:ArcSizeConverter.Instance}, Mode=OneWay}" SweepDirection="Clockwise">
                         <ArcSegment.Point>
                           <MultiBinding Converter="{x:Static circularProgressBarConverters:ArcEndPointConverter.Instance}" ConverterParameter="{x:Static circularProgressBarConverters:ArcEndPointConverter.ParameterMidPoint}">
-                            <Binding ElementName="PathGrid" Path="ActualWidth" />
+                            <Binding  Source="{x:Reference PathGrid}" Path="ActualWidth" />
                             <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                             <Binding Path="Minimum" RelativeSource="{RelativeSource TemplatedParent}" />
                             <Binding Path="Maximum" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -196,10 +196,10 @@
                           </MultiBinding>
                         </ArcSegment.Point>
                       </ArcSegment>
-                      <ArcSegment Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={x:Static circularProgressBarConverters:ArcSizeConverter.Instance}, Mode=OneWay}" SweepDirection="Clockwise">
+                      <ArcSegment Size="{Binding Source={x:Reference PathGrid}, Path=ActualWidth, Converter={x:Static circularProgressBarConverters:ArcSizeConverter.Instance}, Mode=OneWay}" SweepDirection="Clockwise">
                         <ArcSegment.Point>
                           <MultiBinding Converter="{x:Static circularProgressBarConverters:ArcEndPointConverter.Instance}">
-                            <Binding ElementName="PathGrid" Path="ActualWidth" />
+                            <Binding Source="{x:Reference PathGrid}"  Path="ActualWidth" />
                             <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                             <Binding Path="Minimum" RelativeSource="{RelativeSource TemplatedParent}" />
                             <Binding Path="Maximum" RelativeSource="{RelativeSource TemplatedParent}" />
